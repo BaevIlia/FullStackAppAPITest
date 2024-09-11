@@ -30,6 +30,8 @@ namespace FullStackAppAPITest
                 app.UseSwaggerUI();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseAuthorization();
 
 

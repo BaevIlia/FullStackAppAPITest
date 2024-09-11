@@ -58,6 +58,7 @@ namespace FullStackAppAPITest.Controllers
             return NoContent();
         }
 
+        [HttpPost]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem item) 
         {
             var todoItem = new TodoItem()
