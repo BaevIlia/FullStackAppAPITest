@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FullStackAppAPITest.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TodoItemsController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
@@ -19,7 +19,7 @@ namespace FullStackAppAPITest.Controllers
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
             return await _dbContext.TodoItems
-                .Select(x => x)
+                .Select(x=>x)
                 .ToListAsync();
         }
         [HttpGet("{id}")]

@@ -29,7 +29,15 @@ function addItem(){
         getItems();
         addNameTextBox.value ='';
     })
-    .catch(error=>console.error('Unable to delete item.', error));
+    .catch(error=>console.error('Unable to add item.', error));
+}
+
+function deleteItem(id){
+    fetch(`${uri}/${id}`,{
+        method: 'DELETE'
+    })
+    .then(()=>getItems())
+    .catch(error=>console.error('Unable to delete item', error));
 }
 
 function displayEditForm(id){
@@ -97,11 +105,11 @@ function _displayItems(data){
         let tr = tBody.insertRow();
 
         let td1 = tr.insertCell(0);
-        td1.appendChild(textNode);
+        td1.appendChild(isCompleteCheckbox);
 
         let td2 = tr.insertCell(1);
         let textNode = document.createTextNode(item.name);
-        td2.appendChild(editButton);
+        td2.appendChild(textNode);
 
         let td3 = tr.insertCell(2);
         td3.appendChild(editButton);
